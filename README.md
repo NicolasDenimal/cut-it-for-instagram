@@ -1,4 +1,4 @@
-# Cut It – Free Instagram Grid Image Splitter
+# Cut It for Instagram - Free Image Splitter
 
 **Cut your photos into perfect Instagram grid/carousel pieces** — online, free, no signup required.
 
