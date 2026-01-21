@@ -6,7 +6,7 @@ Split one image into **6, 9 or 12 equal squares** optimized for Instagram carous
 
 https://cutit.denimal.ovh
 
-![Cut It preview]([https](https://cutit.denimal.ovh/cut-it-4.png)
+![Cut It preview]((https://cutit.denimal.ovh/cut-it-4.png)
 
 ## Features
 
