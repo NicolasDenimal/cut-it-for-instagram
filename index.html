@@ -1,0 +1,864 @@
+<html lang="en" id="html-lang">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Cut It for Instagram - Free Image Splitter</title>
+    <meta name="description" id="metaDescription" content="Free online tool to split images into Instagram grid format. Cut your photos into 6, 9 or 12 squares for stunning Instagram carousel posts.">
+    <meta name="keywords" content="instagram grid, image splitter, photo cutter, instagram carousel, grid maker, instagram tool, free, split image, photo grid, instagram post, social media tool, image editor">
+    <meta name="author" content="Nicolas Denimal">
+    <meta name="generator" content="Cut It Tool">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="msnbot" content="index, follow">
+    <meta name="adidxbot" content="index, follow">
+    <meta name="bingpreview" content="index, follow">
+    <meta name="slurp" content="index, follow">
+    <meta name="duckduckbot" content="index, follow">
+    <meta name="facebookexternalhit" content="index, follow">
+    <meta name="twitterbot" content="index, follow">
+    <meta name="linkedinbot" content="index, follow">
+    <meta name="whatsapp" content="index, follow">
+    <meta name="telegrambot" content="index, follow">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="language" content="en">
+    <meta name="geo.region" content="FR">
+    <meta name="geo.placename" content="France">
+    <meta name="revisit-after" content="1 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cutit.denimal.ovh">
+    <meta property="og:title" content="Cut It for Instagram - Free Image Splitter">
+    <meta property="og:description" content="Split your images into Instagram grid format. Create stunning carousel posts with 6, 9 or 12 squares.">
+    <meta property="og:image" content="https://cutit.denimal.ovh/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Cut It Denimal">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://cutit.denimal.ovh">
+    <meta name="twitter:title" content="Cut It for Instagram - Free Image Splitter">
+    <meta name="twitter:description" content="Split your images into Instagram grid format. Create stunning carousel posts with 6, 9 or 12 squares.">
+    <meta name="twitter:image" content="https://cutit.denimal.ovh/twitter-image.png">
+    <meta name="twitter:creator" content="@nicodenimal">
+    <meta name="twitter:site" content="@nicodenimal">
+    
+    <!-- Alternate languages -->
+    <link rel="alternate" hreflang="en" href="https://cutit.denimal.ovh/">
+    <link rel="alternate" hreflang="fr" href="https://cutit.denimal.ovh/fr">
+    <link rel="alternate" hreflang="es" href="https://cutit.denimal.ovh/es">
+    <link rel="alternate" hreflang="de" href="https://cutit.denimal.ovh/de">
+    <link rel="alternate" hreflang="it" href="https://cutit.denimal.ovh/it">
+    <link rel="alternate" hreflang="pt" href="https://cutit.denimal.ovh/pt">
+    <link rel="alternate" hreflang="x-default" href="https://cutit.denimal.ovh/">
+    
+    <!-- Icons -->
+    <link rel="canonical" href="https://cutit.denimal.ovh">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#C10B07">
+    <link rel="manifest" href="manifest.json">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            padding-top: 120px;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 150px;
+            height: auto;
+            margin: 0 auto 40px;
+            display: block;
+        }
+        
+        h1 {
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .button, #imageInput, #gridSize {
+            padding: 12px 24px;
+            background-color: #C10B07;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover, #gridSize:hover {
+            background-color: #8B0805;
+        }
+        
+        #imageInput {
+            display: none;
+        }
+        
+        label[for="imageInput"] {
+            padding: 12px 24px;
+            background-color: #C10B07;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+        
+        label[for="imageInput"]:hover {
+            background-color: #8B0805;
+        }
+        
+        #preview {
+            display: grid;
+            gap: 5px;
+            margin: 20px auto;
+            max-width: 90%;
+        }
+        
+        #preview.grid-6 { grid-template-columns: repeat(3, 1fr); }
+        #preview.grid-9 { grid-template-columns: repeat(3, 1fr); }
+        #preview.grid-12 { grid-template-columns: repeat(3, 1fr); }
+        
+        #preview img {
+            width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        #preview img:hover {
+            transform: scale(1.05);
+            border-color: #C10B07;
+        }
+        
+        .video-section {
+            margin: 60px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .video-section h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        
+        .video-section p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+        
+        .video-section video {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .menu-overlay {
+                padding-top: 80px;
+            }
+            body {
+                padding: 10px;
+                padding-top: 70px;
+            }
+            
+            .download-bar {
+                padding: 10px;
+                gap: 12px;
+            }
+            
+            .download-bar a {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .download-bar span.version,
+            .download-bar span.compatibility {
+                font-size: 13px;
+            }
+            
+            h1 {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+            
+            .button, label[for="imageInput"], #gridSize {
+                padding: 10px 20px;
+                font-size: 14px;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            #preview {
+                max-width: 100%;
+                gap: 3px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            #preview {
+                max-width: 800px;
+            }
+            
+            body {
+                padding-top: 80px;
+            }
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        footer a {
+            color: #C10B07;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .download-bar {
+            background-color: #C10B07;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+        
+        .download-bar span.version {
+            color: white;
+            font-weight: bold;
+            background: rgba(0,0,0,0.18);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        
+        .download-bar a {
+            padding: 12px 24px;
+            background-color: white;
+            color: #C10B07;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .download-bar a:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .download-bar span.compatibility {
+            color: white;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+        
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .menu-btn span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: white;
+            margin: 6px auto;
+            transition: 0.3s;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(193, 11, 7, 0.95);
+            z-index: 1000;
+            display: none;
+            padding: 70px 20px 30px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .menu-content {
+            max-width: 600px;
+            margin: 0 auto;
+            color: white;
+            line-height: 1.6;
+        }
+        
+        .menu-content h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .menu-content h3 {
+            color: white;
+            margin: 20px 0 10px;
+        }
+        
+        .menu-content a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .menu-content ul {
+            list-style: none;
+        }
+        
+        .close-menu {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-btn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()">
+        <div class="close-menu" onclick="toggleMenu()">×</div>
+        <div class="menu-content">
+            <h2 id="menuTitle">Cut It</h2>
+            <p id="menuDescription">Outil en ligne gratuit pour diviser des images au format grille Instagram. Découpez vos photos en 6, 9 ou 12 carrés pour de superbes publications carrousel Instagram.</p>
+            <h3 id="menuFeaturesTitle">Fonctionnalités</h3>
+            <ul>
+                <li id="menuFeature1">Découpage en 6, 9 ou 12 images</li>
+                <li id="menuFeature2">Format parfait pour Instagram</li>
+                <li id="menuFeature3">Téléchargement individuel ou groupé</li>
+                <li id="menuFeature4">Outil 100% gratuit</li>
+            </ul>
+            <h3 id="menuDownloadTitle">Application macOS</h3>
+            <p><a href="https://cutit.denimal.ovh/AppmacOS/CutIt-1.0.dmg" id="menuDownloadLink">Télécharger l'application macOS</a></p>
+            <h3>Support et contact</h3>
+            <p><a href="mailto:nicolas@denimal.ovh" style="color: white;">nicolas@denimal.ovh</a></p>
+            <p><a href="https://twitter.com/intent/tweet?screen_name=NicoDenimal&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-show-count="false">Tweet to @NicoDenimal</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+        </div>
+    </div>
+
+    <div class="download-bar">
+        <a href="https://cutit.denimal.ovh/AppmacOS/CutIt-1.0.dmg" id="downloadBarLink">Download macOS App</a>
+    </div>
+
+    <div class="main-content">
+        <img src="image/cut-it-4.png" alt="Cut It" class="logo" onclick="location.reload()" style="cursor: pointer;">
+        <h1>Cut It pour Instagram</h1>
+        <div class="controls">
+            <input type="file" id="imageInput" accept="image/*">
+            <label for="imageInput">Choisir une image</label>
+            <select id="gridSize">
+                <option value="6">6 images (3x2)</option>
+                <option value="9">9 images (3x3)</option>
+                <option value="12">12 images (3x4)</option>
+            </select>
+            <button id="cutBtn" class="button" style="display: none;">Découper</button>
+            <button id="downloadAllBtn" class="button" style="display: none;">Télécharger tout</button>
+        </div>
+        
+        <div id="preview"></div>
+        
+        <!-- Video Section -->
+        <div class="video-section">
+            <h2 id="videoTitle">Comment utiliser Cut It</h2>
+            <p id="videoDescription">Regardez cette démonstration rapide pour apprendre à découper vos images en grille Instagram parfaite.</p>
+            <video id="demoVideo" autoplay muted loop playsinline>
+                <source src="https://cutit.denimal.ovh/video/cut-it-for-instagram_20251222-0417PM.mov" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture vidéo.
+            </video>
+        </div>
+        
+        <canvas id="canvas" style="display: none;"></canvas>
+    </div>
+    
+    <footer>
+        2025 Nicolas Denimal - <a href="https://letal.denimal.ovh">letal.denimal.ovh</a>
+    </footer>
+
+    <script>
+        const translations = {
+            fr: {
+                title: 'Cut It pour Instagram',
+                chooseImage: 'Choisir une image',
+                grid6: '6 images (3x2)',
+                grid9: '9 images (3x3)',
+                grid12: '12 images (3x4)',
+                cut: 'Découper',
+                downloadAll: 'Télécharger tout',
+                keywords: 'grille instagram, diviseur image, découpeur photo, carrousel instagram, créateur grille, outil instagram, gratuit',
+                description: 'Outil en ligne gratuit pour diviser des images au format grille Instagram. Découpez vos photos en 6, 9 ou 12 carrés pour de superbes publications carrousel Instagram.',
+                menuFeaturesTitle: 'Fonctionnalités',
+                menuFeature1: 'Découpage en 6, 9 ou 12 images',
+                menuFeature2: 'Format parfait pour Instagram',
+                menuFeature3: 'Téléchargement individuel ou groupé',
+                menuFeature4: 'Outil 100% gratuit',
+                menuDownloadTitle: 'Application macOS',
+                menuDownloadLink: 'Télécharger l\'application macOS',
+                videoTitle: 'Comment utiliser Cut It',
+                videoDescription: 'Regardez cette démonstration rapide pour apprendre à découper vos images en grille Instagram parfaite.'
+            },
+            en: {
+                title: 'Cut It for Instagram',
+                chooseImage: 'Choose an image',
+                grid6: '6 images (3x2)',
+                grid9: '9 images (3x3)',
+                grid12: '12 images (3x4)',
+                cut: 'Cut',
+                downloadAll: 'Download all',
+                keywords: 'instagram grid, image splitter, photo cutter, instagram carousel, grid maker, instagram tool, free',
+                description: 'Free online tool to split images into Instagram grid format. Cut your photos into 6, 9 or 12 squares for stunning Instagram carousel posts.',
+                menuFeaturesTitle: 'Features',
+                menuFeature1: 'Cut into 6, 9 or 12 images',
+                menuFeature2: 'Perfect format for Instagram',
+                menuFeature3: 'Individual or batch download',
+                menuFeature4: '100% free tool',
+                menuDownloadTitle: 'macOS App',
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: 'How to use Cut It',
+                videoDescription: 'Watch this quick demo to learn how to cut your images into perfect Instagram grid format.'
+            },
+            de: {
+                title: 'Cut It für Instagram',
+                chooseImage: 'Bild auswählen',
+                grid6: '6 Bilder (3x2)',
+                grid9: '9 Bilder (3x3)',
+                grid12: '12 Bilder (3x4)',
+                cut: 'Schneiden',
+                downloadAll: 'Alle herunterladen',
+                keywords: 'instagram raster, bild teiler, foto schneider, instagram karussell, raster ersteller, instagram tool, kostenlos',
+                description: 'Kostenloses Online-Tool zum Aufteilen von Bildern in Instagram-Rasterformat. Schneiden Sie Ihre Fotos in 6, 9 oder 12 Quadrate für beeindruckende Instagram-Karussell-Posts.',
+                menuFeaturesTitle: 'Funktionen',
+                menuFeature1: 'Schneiden in 6, 9 oder 12 Bilder',
+                menuFeature2: 'Perfektes Format für Instagram',
+                menuFeature3: 'Einzelner oder Batch-Download',
+                menuFeature4: '100% kostenloses Tool',
+                menuDownloadTitle: 'macOS App',
+                menuDownloadLink: 'macOS App herunterladen',
+                videoTitle: 'So verwenden Sie Cut It',
+                videoDescription: 'Sehen Sie sich diese kurze Demo an, um zu lernen, wie Sie Ihre Bilder in das perfekte Instagram-Rasterformat schneiden.'
+            },
+            it: {
+                title: 'Cut It per Instagram',
+                chooseImage: 'Scegli un\'immagine',
+                grid6: '6 immagini (3x2)',
+                grid9: '9 immagini (3x3)',
+                grid12: '12 immagini (3x4)',
+                cut: 'Taglia',
+                downloadAll: 'Scarica tutto',
+                keywords: 'griglia instagram, divisore immagini, taglia foto, carosello instagram, creatore griglia, strumento instagram, gratis',
+                description: 'Strumento online gratuito per dividere le immagini in formato griglia Instagram. Taglia le tue foto in 6, 9 o 12 quadrati per splendidi post carosello Instagram.',
+                menuFeaturesTitle: 'Caratteristiche',
+                menuFeature1: 'Taglia in 6, 9 o 12 immagini',
+                menuFeature2: 'Formato perfetto per Instagram',
+                menuFeature3: 'Download individuale o in batch',
+                menuFeature4: 'Strumento 100% gratuito',
+                menuDownloadTitle: 'App macOS',
+                menuDownloadLink: 'Scarica App macOS'
+            },
+            es: {
+                title: 'Cut It para Instagram',
+                chooseImage: 'Elegir una imagen',
+                grid6: '6 imágenes (3x2)',
+                grid9: '9 imágenes (3x3)',
+                grid12: '12 imágenes (3x4)',
+                cut: 'Cortar',
+                downloadAll: 'Descargar todo',
+                keywords: 'cuadrícula instagram, divisor imágenes, cortador fotos, carrusel instagram, creador cuadrícula, herramienta instagram, gratis',
+                description: 'Herramienta en línea gratuita para dividir imágenes en formato de cuadrícula de Instagram. Corta tus fotos en 6, 9 o 12 cuadrados para impresionantes publicaciones de carrusel de Instagram.',
+                menuFeaturesTitle: 'Características',
+                menuFeature1: 'Cortar en 6, 9 o 12 imágenes',
+                menuFeature2: 'Formato perfecto para Instagram',
+                menuFeature3: 'Descarga individual o por lotes',
+                menuFeature4: 'Herramienta 100% gratuita',
+                menuDownloadTitle: 'App macOS',
+                menuDownloadLink: 'Descargar App macOS'
+            },
+            nl: {
+                title: 'Cut It voor Instagram',
+                chooseImage: 'Kies een afbeelding',
+                grid6: '6 afbeeldingen (3x2)',
+                grid9: '9 afbeeldingen (3x3)',
+                grid12: '12 afbeeldingen (3x4)',
+                cut: 'Knippen',
+                downloadAll: 'Alles downloaden',
+                keywords: 'instagram raster, afbeelding splitter, foto snijder, instagram carrousel, raster maker, instagram tool, gratis',
+                description: 'Gratis online tool om afbeeldingen te splitsen in Instagram-rasterformaat. Knip je foto\'s in 6, 9 of 12 vierkanten voor prachtige Instagram-carrouselberichten.',
+                menuFeaturesTitle: 'Functies',
+                menuFeature1: 'Knip in 6, 9 of 12 afbeeldingen',
+                menuFeature2: 'Perfect formaat voor Instagram',
+                menuFeature3: 'Individuele of batch download',
+                menuFeature4: '100% gratis tool',
+                menuDownloadTitle: 'macOS App',
+                menuDownloadLink: 'Download macOS App'
+            },
+            pl: {
+                title: 'Cut It dla Instagram',
+                chooseImage: 'Wybierz obraz',
+                grid6: '6 obrazów (3x2)',
+                grid9: '9 obrazów (3x3)',
+                grid12: '12 obrazów (3x4)',
+                cut: 'Wytnij',
+                downloadAll: 'Pobierz wszystko',
+                keywords: 'siatka instagram, dzielnik obrazów, obcinarka zdjęć, karuzela instagram, kreator siatki, narzędzie instagram, darmowe',
+                description: 'Darmowe narzędzie online do dzielenia obrazów w formacie siatki Instagram. Wytnij swoje zdjęcia na 6, 9 lub 12 kwadratów dla oszałamiających postów karuzeli Instagram.',
+                menuFeaturesTitle: 'Funkcje',
+                menuFeature1: 'Wytnij na 6, 9 lub 12 obrazów',
+                menuFeature2: 'Idealny format dla Instagram',
+                menuFeature3: 'Pobieranie pojedyncze lub grupowe',
+                menuFeature4: '100% darmowe narzędzie',
+                menuDownloadTitle: 'Aplikacja macOS',
+                menuDownloadLink: 'Pobierz aplikację macOS'
+            },
+            ja: {
+                title: 'Cut It for Instagram',
+                chooseImage: '画像を選択',
+                grid6: '6枚の画像 (3x2)',
+                grid9: '9枚の画像 (3x3)',
+                grid12: '12枚の画像 (3x4)',
+                cut: 'カット',
+                downloadAll: 'すべてダウンロード',
+                keywords: 'インスタグラム グリッド, 画像分割, 写真カッター, インスタグラム カルーセル, グリッド作成, インスタグラム ツール, 無料',
+                description: '画像をInstagramグリッド形式に分割する無料のオンラインツール。素晴らしいInstagramカルーセル投稿のために、写真を6、9、または12の正方形にカットします。',
+                menuFeaturesTitle: '機能',
+                menuFeature1: '6、9、または12の画像にカット',
+                menuFeature2: 'Instagramに最適なフォーマット',
+                menuFeature3: '個別またはバッチダウンロード',
+                menuFeature4: '100%無料ツール',
+                menuDownloadTitle: 'macOSアプリ',
+                menuDownloadLink: 'macOSアプリをダウンロード'
+            },
+            pt: {
+                title: 'Cut It para Instagram',
+                chooseImage: 'Escolher uma imagem',
+                grid6: '6 imagens (3x2)',
+                grid9: '9 imagens (3x3)',
+                grid12: '12 imagens (3x4)',
+                cut: 'Cortar',
+                downloadAll: 'Baixar tudo',
+                keywords: 'grade instagram, divisor imagem, cortador foto, carrossel instagram, criador grade, ferramenta instagram, grátis',
+                description: 'Ferramenta online gratuita para dividir imagens em formato de grade do Instagram. Corte suas fotos em 6, 9 ou 12 quadrados para postagens de carrossel impressionantes no Instagram.',
+                menuFeaturesTitle: 'Recursos',
+                menuFeature1: 'Cortar em 6, 9 ou 12 imagens',
+                menuFeature2: 'Formato perfeito para Instagram',
+                menuFeature3: 'Download individual ou em lote',
+                menuFeature4: 'Ferramenta 100% gratuita',
+                menuDownloadTitle: 'App macOS',
+                menuDownloadLink: 'Baixar App macOS'
+            },
+            no: {
+                title: 'Cut It for Instagram',
+                chooseImage: 'Velg et bilde',
+                grid6: '6 bilder (3x2)',
+                grid9: '9 bilder (3x3)',
+                grid12: '12 bilder (3x4)',
+                cut: 'Kutt',
+                downloadAll: 'Last ned alle',
+                keywords: 'instagram rutenett, bildedeler, fotokutter, instagram karusell, rutenett lager, instagram verktøy, gratis',
+                description: 'Gratis nettbasert verktøy for å dele bilder i Instagram-rutenettformat. Kutt bildene dine i 6, 9 eller 12 firkanter for fantastiske Instagram-karusellinnlegg.',
+                menuFeaturesTitle: 'Funksjoner',
+                menuFeature1: 'Kutt i 6, 9 eller 12 bilder',
+                menuFeature2: 'Perfekt format for Instagram',
+                menuFeature3: 'Individuell eller batch nedlasting',
+                menuFeature4: '100% gratis verktøy',
+                menuDownloadTitle: 'macOS App',
+                menuDownloadLink: 'Last ned macOS App'
+            },
+            sv: {
+                title: 'Cut It för Instagram',
+                chooseImage: 'Välj en bild',
+                grid6: '6 bilder (3x2)',
+                grid9: '9 bilder (3x3)',
+                grid12: '12 bilder (3x4)',
+                cut: 'Klipp',
+                downloadAll: 'Ladda ner alla',
+                keywords: 'instagram rutnät, bilddelare, fotoskärare, instagram karusell, rutnät skapare, instagram verktyg, gratis',
+                description: 'Gratis onlineverktyg för att dela bilder i Instagram-rutnätsformat. Klipp dina foton i 6, 9 eller 12 rutor för fantastiska Instagram-karusellinlägg.',
+                menuFeaturesTitle: 'Funktioner',
+                menuFeature1: 'Klipp i 6, 9 eller 12 bilder',
+                menuFeature2: 'Perfekt format för Instagram',
+                menuFeature3: 'Individuell eller batch nedladdning',
+                menuFeature4: '100% gratis verktyg',
+                menuDownloadTitle: 'macOS App',
+                menuDownloadLink: 'Ladda ner macOS App'
+            },
+            fi: {
+                title: 'Cut It Instagramille',
+                chooseImage: 'Valitse kuva',
+                grid6: '6 kuvaa (3x2)',
+                grid9: '9 kuvaa (3x3)',
+                grid12: '12 kuvaa (3x4)',
+                cut: 'Leikkaa',
+                downloadAll: 'Lataa kaikki',
+                keywords: 'instagram ruudukko, kuvan jakaja, valokuvan leikkaaja, instagram karuselli, ruudukon tekijä, instagram työkalu, ilmainen',
+                description: 'Ilmainen online-työkalu kuvien jakamiseen Instagram-ruudukkomuotoon. Leikkaa valokuvasi 6, 9 tai 12 neliöön upeita Instagram-karusellijulkaisuja varten.',
+                menuFeaturesTitle: 'Ominaisuudet',
+                menuFeature1: 'Leikkaa 6, 9 tai 12 kuvaan',
+                menuFeature2: 'Täydellinen muoto Instagramille',
+                menuFeature3: 'Yksittäinen tai erälataus',
+                menuFeature4: '100% ilmainen työkalu',
+                menuDownloadTitle: 'macOS Sovellus',
+                menuDownloadLink: 'Lataa macOS Sovellus'
+            },
+            zh: {
+                title: 'Cut It Instagram切图工具',
+                chooseImage: '选择图片',
+                grid6: '6张图片 (3x2)',
+                grid9: '9张图片 (3x3)',
+                grid12: '12张图片 (3x4)',
+                cut: '切割',
+                downloadAll: '下载全部',
+                keywords: 'instagram网格, 图片分割, 照片切割, instagram轮播, 网格制作, instagram工具, 免费',
+                description: '免费在线工具，可将图像分割成Instagram网格格式。将您的照片切成6、9或12个方块，用于精美的Instagram轮播帖子。',
+                menuFeaturesTitle: '功能',
+                menuFeature1: '切割成6、9或12张图片',
+                menuFeature2: 'Instagram完美格式',
+                menuFeature3: '单独或批量下载',
+                menuFeature4: '100%免费工具',
+                menuDownloadTitle: 'macOS应用',
+                menuDownloadLink: '下载macOS应用'
+            },
+            hi: {
+                title: 'Cut It Instagram के लिए',
+                chooseImage: 'चित्र चुनें',
+                grid6: '6 चित्र (3x2)',
+                grid9: '9 चित्र (3x3)',
+                grid12: '12 चित्र (3x4)',
+                cut: 'काटें',
+                downloadAll: 'सभी डाउनलोड करें',
+                keywords: 'instagram ग्रिड, छवि विभाजक, फोटो कटर, instagram हिंडोला, ग्रिड निर्माता, instagram उपकरण, मुफ्त',
+                description: 'Instagram ग्रिड प्रारूप में छवियों को विभाजित करने के लिए मुफ्त ऑनलाइन उपकरण। शानदार Instagram हिंडोला पोस्ट के लिए अपनी तस्वीरों को 6, 9 या 12 वर्गों में काटें।',
+                menuFeaturesTitle: 'विशेषताएं',
+                menuFeature1: '6, 9 या 12 छवियों में काटें',
+                menuFeature2: 'Instagram के लिए सही प्रारूप',
+                menuFeature3: 'व्यक्तिगत या बैच डाउनलोड',
+                menuFeature4: '100% मुफ्त उपकरण',
+                menuDownloadTitle: 'macOS ऐप',
+                menuDownloadLink: 'macOS ऐप डाउनलोड करें'
+            }
+        };
+
+        async function detectLanguage() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                const countryToLang = {
+                    'FR': 'fr', 'BE': 'fr', 'LU': 'fr', 'CH': 'fr',
+                    'DE': 'de', 'AT': 'de',
+                    'NO': 'no', 'SV': 'sv', 'SE': 'sv', 'FI': 'fi',
+                    'CN': 'zh', 'TW': 'zh', 'HK': 'zh',
+                    'IN': 'hi',
+                    'IT': 'it',
+                    'ES': 'es', 'MX': 'es', 'AR': 'es', 'CO': 'es', 'PE': 'es', 'VE': 'es', 'CL': 'es',
+                    'NL': 'nl',
+                    'PL': 'pl',
+                    'JP': 'ja',
+                    'PT': 'pt', 'BR': 'pt'
+                };
+                return countryToLang[data.country_code] || 'en';
+            } catch {
+                const lang = navigator.language.substring(0, 2);
+                return translations[lang] ? lang : 'en';
+            }
+        }
+
+        function setLanguage(lang) {
+            const t = translations[lang];
+            document.getElementById('pageTitle').textContent = t.title + ' - Free Tool';
+            document.querySelector('h1').textContent = t.title;
+            document.querySelector('label[for="imageInput"]').textContent = t.chooseImage;
+            document.querySelectorAll('#gridSize option')[0].textContent = t.grid6;
+            document.querySelectorAll('#gridSize option')[1].textContent = t.grid9;
+            document.querySelectorAll('#gridSize option')[2].textContent = t.grid12;
+            cutBtn.textContent = t.cut;
+            downloadAllBtn.textContent = t.downloadAll;
+            document.getElementById('metaDescription').setAttribute('content', t.description);
+            document.documentElement.lang = lang;
+            
+            document.getElementById('menuTitle').textContent = 'Cut It';
+            document.getElementById('menuDescription').textContent = t.description;
+            document.getElementById('menuFeaturesTitle').textContent = t.menuFeaturesTitle;
+            document.getElementById('menuFeature1').textContent = t.menuFeature1;
+            document.getElementById('menuFeature2').textContent = t.menuFeature2;
+            document.getElementById('menuFeature3').textContent = t.menuFeature3;
+            document.getElementById('menuFeature4').textContent = t.menuFeature4;
+            document.getElementById('menuDownloadTitle').textContent = t.menuDownloadTitle;
+            document.getElementById('menuDownloadLink').textContent = t.menuDownloadLink;
+            document.getElementById('videoTitle').textContent = t.videoTitle;
+            document.getElementById('videoDescription').textContent = t.videoDescription;
+        }
+        
+        function toggleMenu() {
+            const overlay = document.getElementById('menuOverlay');
+            overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
+        }
+
+        detectLanguage().then(setLanguage);
+
+        const imageInput = document.getElementById('imageInput');
+        const gridSize = document.getElementById('gridSize');
+        const cutBtn = document.getElementById('cutBtn');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const preview = document.getElementById('preview');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let currentImage = null;
+        let parts = [];
+
+        imageInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        currentImage = img;
+                        cutBtn.style.display = 'inline-block';
+                        preview.innerHTML = '';
+                        downloadAllBtn.style.display = 'none';
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        cutBtn.addEventListener('click', () => {
+            if (!currentImage) return;
+            
+            const size = parseInt(gridSize.value);
+            const cols = 3;
+            const rows = size === 6 ? 2 : size === 9 ? 3 : 4;
+            
+            const squareSize = Math.min(currentImage.width / cols, currentImage.height / rows);
+            parts = [];
+            preview.innerHTML = '';
+            preview.className = `grid-${size}`;
+            
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    canvas.width = squareSize;
+                    canvas.height = squareSize;
+                    
+                    ctx.drawImage(
+                        currentImage,
+                        col * squareSize, row * squareSize, squareSize, squareSize,
+                        0, 0, squareSize, squareSize
+                    );
+                    
+                    const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
+                    parts.push(dataUrl);
+                    
+                    const img = document.createElement('img');
+                    img.src = dataUrl;
+                    img.onclick = () => {
+                        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                            const newWindow = window.open();
+                            newWindow.document.write(`<img src="${dataUrl}" style="width:100%;height:auto;">`);
+                            newWindow.document.title = `instagram_${row * cols + col + 1}.jpg`;
+                        } else {
+                            const link = document.createElement('a');
+                            link.download = `instagram_${row * cols + col + 1}.jpg`;
+                            link.href = dataUrl;
+                            link.click();
+                        }
+                    };
+                    preview.appendChild(img);
+                }
+            }
+            
+            downloadAllBtn.style.display = 'inline-block';
+        });
+
+        downloadAllBtn.addEventListener('click', () => {
+            parts.forEach((dataUrl, i) => {
+                setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.download = `instagram_${i + 1}.jpg`;
+                    link.href = dataUrl;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }, i * 300);
+            });
+        });
+    </script>
+</body>
+</html>
