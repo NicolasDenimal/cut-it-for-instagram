@@ -42,4 +42,3 @@ https://cutit.denimal.ovh
 
 This is a **static HTML + CSS + JavaScript** project — no backend needed.
 
-## Folder structure
