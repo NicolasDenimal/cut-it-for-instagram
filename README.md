@@ -42,21 +42,4 @@ https://cutit.denimal.ovh
 
 This is a **static HTML + CSS + JavaScript** project — no backend needed.
 
-### Option 1: GitHub Pages (easiest & free)
-
-1. Fork or clone this repository
-2. Make sure the main file is named `index.html`
-3. Go to **Settings → Pages**
-4. Set Source → Branch: `main` / Folder: `/ (root)`
-5. Wait 1–2 minutes → your site will be live at  
-   `https://your-username.github.io/your-repo-name/`
-
-### Option 2: Local
-
-Just open `index.html` in any modern browser.
-
-### Option 3: Any static hosting
-
-Netlify, Vercel, Cloudflare Pages, Render, Surge, etc.
-
 ## Folder structure
