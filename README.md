@@ -29,10 +29,6 @@ https://cutit.denimal.ovh
 
 <!-- You can replace these with real screenshot URLs after uploading them to the repo -->
 
-![Interface](screenshots/cut-it-interface.jpg?raw=true)
-![Preview 9 pieces](screenshots/preview-9-pieces.jpg?raw=true)
-![Mobile view](screenshots/mobile-view.jpg?raw=true)
-
 ## How to Use
 
 1. Click **"Choose an image"**
