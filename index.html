@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" id="html-lang">
 <head>
     <meta charset="UTF-8">
@@ -9,8 +10,7 @@
     <meta name="generator" content="Cut It Tool">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="msnbot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
     <meta name="adidxbot" content="index, follow">
     <meta name="bingpreview" content="index, follow">
     <meta name="slurp" content="index, follow">
@@ -32,7 +32,7 @@
     <meta property="og:url" content="https://cutit.denimal.ovh">
     <meta property="og:title" content="Cut It for Instagram - Free Image Splitter">
     <meta property="og:description" content="Split your images into Instagram grid format. Create stunning carousel posts with 6, 9 or 12 squares.">
-    <meta property="og:image" content="https://cutit.denimal.ovh/og-image.png">
+    <meta property="og:image" content="https://cutit.denimal.ovh/image/cut-it-4.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Cut It Denimal">
@@ -43,7 +43,7 @@
     <meta name="twitter:url" content="https://cutit.denimal.ovh">
     <meta name="twitter:title" content="Cut It for Instagram - Free Image Splitter">
     <meta name="twitter:description" content="Split your images into Instagram grid format. Create stunning carousel posts with 6, 9 or 12 squares.">
-    <meta name="twitter:image" content="https://cutit.denimal.ovh/twitter-image.png">
+    <meta name="twitter:image" content="https://cutit.denimal.ovh/image/cut-it-4.png">
     <meta name="twitter:creator" content="@nicodenimal">
     <meta name="twitter:site" content="@nicodenimal">
     
@@ -162,20 +162,24 @@
         
         .video-section {
             margin: 60px auto;
-            max-width: 800px;
+            max-width: 100%;
+            width: 100%;
+            padding: 0 10px;
             text-align: center;
         }
         
         .video-section h2 {
             color: #333;
-            margin-bottom: 10px;
+            margin: 0 auto 10px;
             font-size: 1.5em;
+            max-width: 90%;
         }
         
         .video-section p {
             color: #666;
-            margin-bottom: 20px;
+            margin: 0 auto 20px;
             font-size: 1em;
+            max-width: 90%;
         }
         
         .video-section video {
@@ -185,28 +189,53 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
+        .video-section img {
+            border-radius: 8px;
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Pas d'ombre pour l'image de l'app macOS */
+        .video-section img[src*="cut-it-for-instagram-2026.png"] {
+            box-shadow: none;
+        }
+        
         @media (max-width: 768px) {
-            .menu-overlay {
-                padding-top: 80px;
-            }
             body {
                 padding: 10px;
-                padding-top: 70px;
+                padding-top: 90px;
+            }
+            
+            .video-section {
+                padding: 0 8px;
+                margin: 40px auto;
+            }
+            
+            .video-section h2 {
+                font-size: 1.4em;
+            }
+            
+            .video-section p {
+                font-size: 0.95em;
+            }
+            
+            /* Centrage parfait de l'image même si elle est très large */
+            .video-section img {
+                max-width: 100vw;
+                margin-left: calc(50% - 50vw);
+                margin-right: calc(50% - 50vw);
             }
             
             .download-bar {
-                padding: 10px;
-                gap: 12px;
+                padding: 10px 12px;
+                gap: 10px;
             }
             
             .download-bar a {
-                padding: 10px 20px;
+                padding: 9px 16px;
                 font-size: 14px;
-            }
-            
-            .download-bar span.version,
-            .download-bar span.compatibility {
-                font-size: 13px;
             }
             
             h1 {
@@ -214,21 +243,14 @@
                 margin-bottom: 15px;
             }
             
-            .button, label[for="imageInput"], #gridSize {
-                padding: 10px 20px;
-                font-size: 14px;
-                width: 100%;
-                max-width: 300px;
-            }
-            
             .controls {
                 flex-direction: column;
                 align-items: center;
             }
             
-            #preview {
-                max-width: 100%;
-                gap: 3px;
+            .button, label[for="imageInput"], #gridSize {
+                width: 100%;
+                max-width: 300px;
             }
         }
         
@@ -238,7 +260,7 @@
             }
             
             body {
-                padding-top: 80px;
+                padding-top: 100px;
             }
         }
         
@@ -270,7 +292,7 @@
         
         .download-bar {
             background-color: #C10B07;
-            padding: 15px;
+            padding: 15px 16px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -280,16 +302,14 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
         
-        .download-bar span.version {
-            color: white;
-            font-weight: bold;
-            background: rgba(0,0,0,0.18);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 15px;
+        .download-bar::-webkit-scrollbar {
+            display: none;
         }
         
         .download-bar a {
@@ -300,17 +320,11 @@
             border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
-            transition: background-color 0.3s;
+            white-space: nowrap;
         }
         
         .download-bar a:hover {
             background-color: #f0f0f0;
-        }
-        
-        .download-bar span.compatibility {
-            color: white;
-            font-size: 14px;
-            opacity: 0.95;
         }
         
         .menu-btn {
@@ -343,7 +357,6 @@
             display: none;
             padding: 70px 20px 30px;
             overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
         }
         
         .menu-content {
@@ -351,26 +364,6 @@
             margin: 0 auto;
             color: white;
             line-height: 1.6;
-        }
-        
-        .menu-content h2 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-        
-        .menu-content h3 {
-            color: white;
-            margin: 20px 0 10px;
-        }
-        
-        .menu-content a {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .menu-content ul {
-            list-style: none;
         }
         
         .close-menu {
@@ -381,11 +374,6 @@
             font-size: 40px;
             cursor: pointer;
             z-index: 1001;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
     </style>
 </head>
@@ -445,6 +433,13 @@
                 Votre navigateur ne supporte pas la lecture vidéo.
             </video>
         </div>
+
+        <!-- macOS App Section -->
+        <div class="video-section">
+            <h2 id="appTitle"></h2>
+            <p id="appDescription"></p>
+            <img src="https://cutit.denimal.ovh/image/cut-it-for-instagram-2026.png" alt="Cut It for Instagram macOS app">
+        </div>
         
         <canvas id="canvas" style="display: none;"></canvas>
     </div>
@@ -471,9 +466,10 @@
                 menuFeature3: 'Téléchargement individuel ou groupé',
                 menuFeature4: 'Outil 100% gratuit',
                 menuDownloadTitle: 'Application macOS',
-                menuDownloadLink: 'Télécharger l\'application macOS',
+                menuDownloadLink: 'Télécharger l\'app macOS',
                 videoTitle: 'Comment utiliser Cut It',
-                videoDescription: 'Regardez cette démonstration rapide pour apprendre à découper vos images en grille Instagram parfaite.'
+                videoDescription: 'Regardez cette démonstration rapide pour apprendre à découper vos images en grille Instagram parfaite.',
+                appDescription: 'Téléchargez l\'application native pour profiter de Cut It hors ligne sur votre Mac.'
             },
             en: {
                 title: 'Cut It for Instagram',
@@ -493,7 +489,8 @@
                 menuDownloadTitle: 'macOS App',
                 menuDownloadLink: 'Download macOS App',
                 videoTitle: 'How to use Cut It',
-                videoDescription: 'Watch this quick demo to learn how to cut your images into perfect Instagram grid format.'
+                videoDescription: 'Watch this quick demo to learn how to cut your images into perfect Instagram grid format.',
+                appDescription: 'Download the native app to enjoy Cut It offline on your Mac.'
             },
             de: {
                 title: 'Cut It für Instagram',
@@ -511,9 +508,10 @@
                 menuFeature3: 'Einzelner oder Batch-Download',
                 menuFeature4: '100% kostenloses Tool',
                 menuDownloadTitle: 'macOS App',
-                menuDownloadLink: 'macOS App herunterladen',
+                menuDownloadLink: 'Download macOS App',
                 videoTitle: 'So verwenden Sie Cut It',
-                videoDescription: 'Sehen Sie sich diese kurze Demo an, um zu lernen, wie Sie Ihre Bilder in das perfekte Instagram-Rasterformat schneiden.'
+                videoDescription: 'Sehen Sie sich diese kurze Demo an, um zu lernen, wie Sie Ihre Bilder in das perfekte Instagram-Rasterformat schneiden.',
+                appDescription: 'Laden Sie die native App herunter, um Cut It offline auf Ihrem Mac zu nutzen.'
             },
             it: {
                 title: 'Cut It per Instagram',
@@ -531,7 +529,10 @@
                 menuFeature3: 'Download individuale o in batch',
                 menuFeature4: 'Strumento 100% gratuito',
                 menuDownloadTitle: 'App macOS',
-                menuDownloadLink: 'Scarica App macOS'
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: 'Come usare Cut It',
+                videoDescription: 'Guarda questa breve demo per imparare a tagliare le tue immagini nel formato griglia Instagram perfetto.',
+                appDescription: 'Scarica l\'app nativa per utilizzare Cut It offline sul tuo Mac.'
             },
             es: {
                 title: 'Cut It para Instagram',
@@ -549,7 +550,10 @@
                 menuFeature3: 'Descarga individual o por lotes',
                 menuFeature4: 'Herramienta 100% gratuita',
                 menuDownloadTitle: 'App macOS',
-                menuDownloadLink: 'Descargar App macOS'
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: 'Cómo usar Cut It',
+                videoDescription: 'Mira esta demo rápida para aprender a cortar tus imágenes en el formato de cuadrícula perfecto para Instagram.',
+                appDescription: 'Descarga la app nativa para disfrutar de Cut It offline en tu Mac.'
             },
             nl: {
                 title: 'Cut It voor Instagram',
@@ -567,7 +571,10 @@
                 menuFeature3: 'Individuele of batch download',
                 menuFeature4: '100% gratis tool',
                 menuDownloadTitle: 'macOS App',
-                menuDownloadLink: 'Download macOS App'
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: 'Hoe Cut It te gebruiken',
+                videoDescription: 'Bekijk deze korte demo om te leren hoe je je afbeeldingen in perfect Instagram-rasterformaat knipt.',
+                appDescription: 'Download de native app om Cut It offline op je Mac te gebruiken.'
             },
             pl: {
                 title: 'Cut It dla Instagram',
@@ -585,7 +592,10 @@
                 menuFeature3: 'Pobieranie pojedyncze lub grupowe',
                 menuFeature4: '100% darmowe narzędzie',
                 menuDownloadTitle: 'Aplikacja macOS',
-                menuDownloadLink: 'Pobierz aplikację macOS'
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: 'Jak używać Cut It',
+                videoDescription: 'Obejrzyj tę krótką demo, aby nauczyć się wycinać obrazy w idealnym formacie siatki Instagram.',
+                appDescription: 'Pobierz natywną aplikację, aby korzystać z Cut It offline na swoim Macu.'
             },
             ja: {
                 title: 'Cut It for Instagram',
@@ -603,7 +613,10 @@
                 menuFeature3: '個別またはバッチダウンロード',
                 menuFeature4: '100%無料ツール',
                 menuDownloadTitle: 'macOSアプリ',
-                menuDownloadLink: 'macOSアプリをダウンロード'
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: 'Cut Itの使い方',
+                videoDescription: 'この短いデモを見て、画像を完璧なInstagramグリッド形式にカットする方法を学びましょう。',
+                appDescription: 'ネイティブアプリをダウンロードして、MacでオフラインでCut Itを楽しもう。'
             },
             pt: {
                 title: 'Cut It para Instagram',
@@ -621,7 +634,10 @@
                 menuFeature3: 'Download individual ou em lote',
                 menuFeature4: 'Ferramenta 100% gratuita',
                 menuDownloadTitle: 'App macOS',
-                menuDownloadLink: 'Baixar App macOS'
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: 'Como usar Cut It',
+                videoDescription: 'Assista a esta demo rápida para aprender a cortar suas imagens no formato de grade perfeito para Instagram.',
+                appDescription: 'Baixe o app nativo para desfrutar do Cut It offline no seu Mac.'
             },
             no: {
                 title: 'Cut It for Instagram',
@@ -639,7 +655,10 @@
                 menuFeature3: 'Individuell eller batch nedlasting',
                 menuFeature4: '100% gratis verktøy',
                 menuDownloadTitle: 'macOS App',
-                menuDownloadLink: 'Last ned macOS App'
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: 'Hvordan bruke Cut It',
+                videoDescription: 'Se denne korte demoen for å lære hvordan du kutter bildene dine i perfekt Instagram-rutenettformat.',
+                appDescription: 'Last ned den native appen for å bruke Cut It offline på din Mac.'
             },
             sv: {
                 title: 'Cut It för Instagram',
@@ -657,7 +676,10 @@
                 menuFeature3: 'Individuell eller batch nedladdning',
                 menuFeature4: '100% gratis verktyg',
                 menuDownloadTitle: 'macOS App',
-                menuDownloadLink: 'Ladda ner macOS App'
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: 'Hur man använder Cut It',
+                videoDescription: 'Titta på denna korta demo för att lära dig hur du klipper dina bilder i perfekt Instagram-rutnätsformat.',
+                appDescription: 'Ladda ner den native appen för att använda Cut It offline på din Mac.'
             },
             fi: {
                 title: 'Cut It Instagramille',
@@ -675,7 +697,10 @@
                 menuFeature3: 'Yksittäinen tai erälataus',
                 menuFeature4: '100% ilmainen työkalu',
                 menuDownloadTitle: 'macOS Sovellus',
-                menuDownloadLink: 'Lataa macOS Sovellus'
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: 'Kuinka käyttää Cut It',
+                videoDescription: 'Katso tämä lyhyt demo oppiaksesi leikkaamaan kuvasi täydelliseen Instagram-ruudukkomuotoon.',
+                appDescription: 'Lataa natiivi sovellus käyttääksesi Cut It offline Macillasi.'
             },
             zh: {
                 title: 'Cut It Instagram切图工具',
@@ -693,7 +718,10 @@
                 menuFeature3: '单独或批量下载',
                 menuFeature4: '100%免费工具',
                 menuDownloadTitle: 'macOS应用',
-                menuDownloadLink: '下载macOS应用'
+                menuDownloadLink: 'Download macOS App',
+                videoTitle: '如何使用 Cut It',
+                videoDescription: '观看这个快速演示，学习如何将您的图像切割成完美的Instagram网格格式。',
+                appDescription: '下载原生应用，在您的 Mac 上离线享受 Cut It。'
             },
             hi: {
                 title: 'Cut It Instagram के लिए',
@@ -711,7 +739,10 @@
                 menuFeature3: 'व्यक्तिगत या बैच डाउनलोड',
                 menuFeature4: '100% मुफ्त उपकरण',
                 menuDownloadTitle: 'macOS ऐप',
-                menuDownloadLink: 'macOS ऐप डाउनलोड करें'
+                menuDownloadLink: 'macOS ऐप डाउनलोड करें',
+                videoTitle: 'Cut It का उपयोग कैसे करें',
+                videoDescription: 'यह त्वरित डेमो देखें कि अपनी छवियों को परफेक्ट Instagram ग्रिड फॉर्मेट में कैसे काटें।',
+                appDescription: 'नेटिव ऐप डाउनलोड करें ताकि आप अपने Mac पर Cut It का ऑफलाइन आनंद ले सकें।'
             }
         };
 
@@ -763,6 +794,13 @@
             document.getElementById('menuDownloadLink').textContent = t.menuDownloadLink;
             document.getElementById('videoTitle').textContent = t.videoTitle;
             document.getElementById('videoDescription').textContent = t.videoDescription;
+
+            // Section macOS (sans le bouton)
+            document.getElementById('appTitle').textContent = t.menuDownloadTitle;
+            document.getElementById('appDescription').textContent = t.appDescription;
+
+            // Barre de téléchargement en haut
+            document.getElementById('downloadBarLink').textContent = t.menuDownloadLink;
         }
         
         function toggleMenu() {
